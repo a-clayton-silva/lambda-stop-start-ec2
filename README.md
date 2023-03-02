@@ -1,12 +1,6 @@
 # lambda-stop-start-ec2
 
-
-##################################
-lambda stop start
-
-criar uma nova politica e atachar em uma nova role no iam
-##################################
-
+1 - criar uma nova politica e atachar em uma nova role no iam
 
 
 {
@@ -32,9 +26,9 @@ criar uma nova politica e atachar em uma nova role no iam
     ]
   }
 
-##################################
-criar a lambda, atachar a role criada e incluir o codigo abaixo, um para start e outro para stop, usar timeout 15 segundos.
-##################################
+
+2 - criar a lambda, atachar a role criada e incluir o codigo abaixo, um para start e outro para stop, usar timeout 15 segundos.
+
 
 import boto3
 region = 'us-east-1'
@@ -59,9 +53,9 @@ def lambda_handler(event, context):
     
     
     
-##################################
-criar gatilho eventbridge cloudwatch events
-##################################
+
+3 - criar gatilho eventbridge cloudwatch events
+
 
 criar uma nova regra
 #obs, lembrando que na cron, tem que somar 3 horas, se o caso abaixo seria para iniciar as 19h, colocar as 22h. minute, hour, day month, month, day week. https://crontab.guru/
@@ -71,16 +65,19 @@ cron(20 22 ? * MON,WED *)
 stop
 cron(0 1 ? * TUE,THU *)
 
-##################################
-criar uma retençao de expiraçao de logs no cloudwatch para nao gerar custo
-##################################
+
+4 - criar uma retençao de expiraçao de logs no cloudwatch para nao gerar custo
+
 
 cloudwatch / logs / logs groups
 clicar em never expire em terention e alterar para 1 dia ou 7 dias.
 
 
 #####
+
 FIM
+
+
 #####
 
 
